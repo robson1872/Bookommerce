@@ -1,14 +1,21 @@
-import React from 'react'
-import Logo from '../../assets/logo.png'
+import React ,{useState} from 'react'
+
+import Nav from '../../Components/Nav/Nav'
+import Card from '../../Components/Card/Card'
+import Modal from '../../Components/Modal/Modal'
+
 function Home() {
+  const [isModalOpen, setModalOpen] = useState(false)
+  function openModal(){
+    setModalOpen(true)
+    }
+
+    function closeModal(){
+        setModalOpen(false)
+    }
   return (
     <>
-    <nav>
-        <div className='nav-container'>
-            <img src = {Logo} alt = "Logo do Bookommerce" />
-            <button>Entrar</button>
-        </div>
-    </nav>
+    <Nav openModal = {openModal}/>
 
     <section className= "input-section">
         <form>
@@ -22,79 +29,13 @@ function Home() {
     
     <section className= "products-section">
         <div className='products-container'>
-            <div className='card'>
-                <h2>O alquimista</h2>
-                <h1>R$ 15,00</h1>
-                <div className='card-info'>
-                    <div className='card-info-detail'>
-                        <img src = "" alt = ""/>
-                        <p>João Pedro</p>
-                    </div>
-                    <div className='card-info-detail'>
-                        <img src = "" alt = ""/>
-                        <p>+55 82 9999 9999</p>
-                    </div>
-                </div>
-            </div>
-            <div className='card'>
-                <h2>O alquimista</h2>
-                <h1>R$ 15,00</h1>
-                <div className='card-info'>
-                    <div className='card-info-detail'>
-                        <img src = "" alt = ""/>
-                        <p>João Pedro</p>
-                    </div>
-                    <div className='card-info-detail'>
-                        <img src = "" alt = ""/>
-                        <p>+55 82 9999 9999</p>
-                    </div>
-                </div>
-            </div>
-            <div className='card'>
-                <h2>O alquimista</h2>
-                <h1>R$ 15,00</h1>
-                <div className='card-info'>
-                    <div className='card-info-detail'>
-                        <img src = "" alt = ""/>
-                        <p>João Pedro</p>
-                    </div>
-                    <div className='card-info-detail'>
-                        <img src = "" alt = ""/>
-                        <p>+55 82 9999 9999</p>
-                    </div>
-                </div>
-            </div>
-            <div className='card'>
-                <h2>O alquimista</h2>
-                <h1>R$ 15,00</h1>
-                <div className='card-info'>
-                    <div className='card-info-detail'>
-                        <img src = "" alt = ""/>
-                        <p>João Pedro</p>
-                    </div>
-                    <div className='card-info-detail'>
-                        <img src = "" alt = ""/>
-                        <p>+55 82 9999 9999</p>
-                    </div>
-                </div>
-            </div>
-            <div className='card'>
-                <h2>O alquimista</h2>
-                <h1>R$ 15,00</h1>
-                <div className='card-info'>
-                    <div className='card-info-detail'>
-                        <img src = "" alt = ""/>
-                        <p>João Pedro</p>
-                    </div>
-                    <div className='card-info-detail'>
-                        <img src = "" alt = ""/>
-                        <p>+55 82 9999 9999</p>
-                    </div>
-                </div>
-            </div>
+            <Card />
+            <Card />
+            <Card />
+            <Card />
         </div>
     </section>
-
+        {isModalOpen ? <Modal closeModal = {closeModal}/> : null}
     </>
   )
 }
